@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pmfilter-fe-30091
+  namespace: boat
+
+spec:
+  replicas: 1
+
+  selector:
+    matchLabels:
+      app: pmfilter-fe-30091
+
+  template:
+    metadata:
+      labels:
+        app: pmfilter-fe-30091
+
+    spec:
+      containers:
+      - name: pmfilter-fe-30091
+
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+
+        imagePullPolicy: Always
+
+        ports:
+        - containerPort: 80
+
+        envFrom: 
+        - secretRef: 
+            name: pmfilter-fe-30091-secret

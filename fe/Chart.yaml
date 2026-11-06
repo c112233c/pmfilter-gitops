@@ -1,0 +1,6 @@
+apiVersion: v2
+name: pmfilter-fe-30091
+description: Web PM Filter Event Frontend
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
